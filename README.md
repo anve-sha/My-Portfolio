@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com/?lines=Frontend+Developer;UI+Focused+Engineer;Founding+Member+@+Sitekraft.dev;Building+Real+World+Products&center=true&width=550&height=45">
+  <img src="https://readme-typing-svg.demolab.com/?lines=Web+Developer;AI+Enthusiastic+DSA+with+Python;Founding+Member+@+Sitekraft.dev;Building+Real+World+Products&center=true&width=550&height=45">
 </p>
 
 ---
