@@ -1,0 +1,797 @@
+:root {
+  --bg: #05070e;
+  --card: rgba(12, 18, 34, 0.85);
+  /* Slightly transparent cards */
+  --accent: #b026ff;
+  /* Neon Purple */
+  --text: #ffffff;
+  --muted: #b0b8d1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: transparent;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+#canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle at center, #1a0b2e 0%, #000000 100%);
+  /* Darker purple-space background */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 8vw;
+  border-bottom: 1px solid rgba(27, 34, 64, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.header a {
+  color: var(--text);
+  margin-left: 18px;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.header a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(176, 38, 255, 0.5);
+}
+
+.header a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: var(--accent);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.header a:hover::after {
+  width: 100%;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 160px 8vw;
+  gap: 80px;
+  /* Removed old gradient background to see galaxy */
+}
+
+.intro {
+  letter-spacing: 4px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  /* Reduced to standard */
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  /* Significantly reduced */
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(176, 38, 255, 0.4);
+  /* Pop Animation */
+  opacity: 0;
+  animation: popIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  80% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.hero h2.typing {
+  height: 1.5em;
+  font-size: 1.5rem;
+  /* Reduced */
+  color: var(--muted);
+}
+
+.desc {
+  color: var(--muted);
+  margin-top: 24px;
+  font-size: 1rem;
+  /* Standard readable size */
+  max-width: 90%;
+}
+
+.profile-card {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  padding: 0;
+  /* Removed padding */
+  /* Removed background, border, shadow for floating effect */
+  animation: float 6s ease-in-out infinite;
+}
+
+.profile-card img {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: contain;
+  /* Shows full image without cropping */
+  background: #000;
+  /* Fills empty space if image isn't square */
+  border: 4px solid var(--accent);
+  box-shadow: 0 0 20px var(--accent), inset 0 0 20px var(--accent);
+  position: relative;
+  /* Holographic scanline effect is best done with an overlay, but simple glow works well on img */
+  filter: drop-shadow(0 0 10px var(--accent));
+  animation: pulse-glow 3s infinite alternate;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 15px var(--accent), inset 0 0 10px var(--accent);
+    filter: hue-rotate(0deg) drop-shadow(0 0 5px var(--accent));
+  }
+
+  100% {
+    box-shadow: 0 0 30px var(--accent), inset 0 0 20px var(--accent);
+    filter: hue-rotate(10deg) drop-shadow(0 0 15px var(--accent));
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-16px)
+  }
+}
+
+
+.section {
+  padding: 120px 10vw;
+  /* More whitespace */
+}
+
+.section h2 {
+  font-size: 2rem;
+  /* Reduced to standard header size */
+  margin-bottom: 40px;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(176, 38, 255, 0.3);
+}
+
+.text {
+  max-width: 700px;
+  /* Constrained width for readability */
+  color: var(--muted);
+  font-size: 1rem;
+  /* Standard */
+  line-height: 1.8;
+  margin-bottom: 40px;
+  /* Space after text */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* Slightly wider items */
+  gap: 60px;
+  /* Increased gap */
+}
+
+/* Card Removal & Text Animation */
+.card,
+.contact {
+  background: transparent;
+  padding: 0 0 30px 0;
+  margin-bottom: 30px;
+  /* Space between items */
+  border-radius: 0;
+  border-bottom: 1px solid rgba(176, 38, 255, 0.3);
+}
+
+.project {
+  position: relative;
+  background: transparent;
+  padding: 0 0 40px 0;
+  margin-bottom: 40px;
+  /* Space between projects */
+  border-radius: 0;
+  transition: .4s;
+  border-bottom: 1px solid rgba(176, 38, 255, 0.3);
+}
+
+.project:last-child,
+.card:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+/* Ensure text pops */
+h3,
+p,
+span,
+h2,
+.contact {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+#contact .grid {
+  display: flex;
+  flex-wrap: wrap;
+  /* Allow wrapping on very small screens, but mostly row */
+  justify-content: center;
+  /* Center visuals */
+  gap: 40px;
+}
+
+#contact .contact {
+  margin-bottom: 0;
+  /* Remove bottom margin in row layout */
+  border-bottom: none;
+  /* Remove divider in row layout */
+  padding: 10px 20px;
+  background: rgba(176, 38, 255, 0.05);
+  /* Subtle background for active feel */
+  border-radius: 50px;
+  /* Pill shape */
+  border: 1px solid rgba(176, 38, 255, 0.2);
+}
+
+/* Scroll Animation Class */
+.hidden-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.show-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project:hover {
+  transform: translateY(-14px)
+}
+
+.project img {
+  width: 100%;
+  border-radius: 16px
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: .3s;
+}
+
+.project:hover .overlay {
+  opacity: 1
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.cert-grid img {
+  height: 220px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 22px;
+  cursor: pointer;
+}
+
+#modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .85);
+  align-items: center;
+  justify-content: center;
+}
+
+#modal img {
+  max-width: 90%;
+  border-radius: 20px
+}
+
+#chatBtn {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  padding: 14px 22px;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+#chatbot {
+  display: none;
+  position: fixed;
+  bottom: 90px;
+  right: 22px;
+  width: 340px;
+  /* Slightly wider */
+  background: rgba(12, 18, 34, 0.6);
+  /* Transparent dark */
+  backdrop-filter: blur(15px);
+  /* Glassmorphism */
+  border-radius: 22px;
+  border: 1px solid rgba(176, 38, 255, 0.3);
+  /* Purple border */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.chat-suggestions {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.suggestion-chip {
+  background: rgba(176, 38, 255, 0.2);
+  border: 1px solid rgba(176, 38, 255, 0.4);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.suggestion-chip:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+/* Input Area Wrapper */
+.chat-input-area {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Contact Form */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+
+#contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 500px;
+  background: rgba(12, 18, 34, 0.4);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(176, 38, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+#contactForm input,
+#contactForm textarea {
+  width: 100%;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(176, 38, 255, 0.3);
+  border-radius: 12px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(176, 38, 255, 0.2);
+}
+
+#contactForm button {
+  padding: 16px;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+
+#contactForm button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(176, 38, 255, 0.4);
+}
+
+.success-message {
+  text-align: center;
+  padding: 40px;
+  background: rgba(12, 18, 34, 0.6);
+  border-radius: 20px;
+  border: 1px solid var(--accent);
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.success-message i {
+  font-size: 3rem;
+  color: var(--accent);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Chatbot styles continue... */
+
+/* Experience Card Specifics */
+.experience-card,
+.about-card,
+.education-card {
+  text-align: left;
+  padding: 40px;
+  background: rgba(12, 18, 34, 0.6);
+  border: 1px solid rgba(176, 38, 255, 0.3);
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover,
+.about-card:hover,
+.education-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(176, 38, 255, 0.15);
+}
+
+.role-header h3,
+.edu-header h3 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.company,
+.institution {
+  font-size: 1.2rem;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.role-subheader,
+.edu-subheader {
+  margin: 15px 0 25px 0;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.role-subheader .title,
+.edu-subheader .grade {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.experience-list,
+.about-list,
+.edu-list {
+  list-style: none;
+  padding: 0;
+}
+
+.experience-list li,
+.about-list li,
+.edu-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 15px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.experience-list li::before,
+.about-list li::before,
+.edu-list li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.experience-list b,
+.about-list b,
+.edu-list b {
+  color: #fff;
+}
+
+.links a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-right: 20px;
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.links a:hover {
+  color: var(--accent);
+}
+
+
+#chatInput {
+  flex: 1;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+#sendMsgBtn {
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  font-size: 1.2rem;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+/* Contact Link Styles */
+#contact .contact a {
+  color: var(--text);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+#contact .contact a:hover {
+  color: var(--accent);
+}
+
+/* Project Card Styles */
+.project-card {
+  padding: 0;
+  overflow: hidden;
+  background: rgba(12, 18, 34, 0.6);
+  border: 1px solid rgba(176, 38, 255, 0.3);
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(176, 38, 255, 0.15);
+}
+
+.project-card .project-img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  /* Shows full image */
+  background: #000;
+  /* Fills empty space */
+  border-bottom: 1px solid rgba(176, 38, 255, 0.1);
+}
+
+.project-card .project-content {
+  padding: 25px;
+}
+
+.project-card .role-header h3 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.project-card .text {
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+  color: var(--muted);
+}
+
+.project-card .links {
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 15px;
+  display: flex;
+  gap: 20px;
+}
+
+#sendMsgBtn:hover {
+  background: rgba(176, 38, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.chat-head {
+  padding: 12px;
+  background: var(--accent);
+  color: #000
+}
+
+.chat-body {
+  padding: 12px;
+  height: 200px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-msg {
+  align-self: flex-end;
+  background: var(--accent);
+  color: #000;
+  padding: 8px 12px;
+  border-radius: 12px 12px 0 12px;
+  max-width: 80%;
+  font-size: 0.9rem;
+}
+
+.bot-msg {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 12px 12px 12px 0;
+  max-width: 80%;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: var(--muted)
+}
+
+
+/* Certificate Card Styles */
+.cert-card {
+  padding: 0;
+  overflow: hidden;
+  background: rgba(12, 18, 34, 0.6);
+  border: 1px solid rgba(176, 38, 255, 0.3);
+  border-radius: 16px;
+  text-align: left;
+  /* Override center alignment if any */
+}
+
+.cert-card .cert-img-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(176, 38, 255, 0.1);
+  position: relative;
+}
+
+.cert-card .cert-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Changed to contain to prevent cropping */
+  background: #000;
+  transition: transform 0.5s ease;
+}
+
+.cert-card:hover .cert-img-wrapper img {
+  transform: scale(1.1);
+}
+
+.cert-card .cert-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cert-card h3 {
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.cert-card .role-subheader {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.cert-card .view-btn {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 500;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cert-card .view-btn:hover {
+  background: var(--accent);
+  color: #000;
+  box-shadow: 0 0 15px rgba(176, 38, 255, 0.4);
+}
+
+@media(max-width:900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center
+  }
+
+  .profile-card {
+    flex-direction: column
+  }
+}
