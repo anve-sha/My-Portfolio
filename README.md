@@ -1,48 +1,78 @@
-# My-Portfolio
-A modern, responsive developer portfolio highlighting frontend skills, real client work, and leadership experience at Sitekraft.dev.
-📌 About This Project
-This repository contains the source code for my personal developer portfolio.
-The portfolio is designed to showcase my frontend development skills,
-real-world project experience, and professional journey.
+<h1 align="center">
+  👋 Hi, I'm Anvesha Srivastava
+</h1>
 
-It highlights my work as a Web Developer and Founding Member at Sitekraft.dev,
-along with the projects, technologies, and design principles I follow.
-The focus is on clean UI, responsive design, and production-ready practices.
+<p align="center">
+  <b>Web Developer | Founding Member @ Sitekraft.dev</b>
+</p>
 
-✅ Tech Stack Section (Add this — recruiters love it)
-Tech Stack:
-- HTML5
-- CSS3
-- JavaScript
-- Responsive Design
-- UI/UX Best Practices
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com/?lines=Frontend+Developer;UI+Focused+Engineer;Founding+Member+@+Sitekraft.dev;Building+Real+World+Products&center=true&width=550&height=45">
+</p>
 
+---
 
-(Replace/add React, Tailwind, etc. if used)
+## 📌 About This Repository
 
-✅ Features Section (Very Important)
-Features:
-- Modern, responsive UI design
-- Structured and clean codebase
-- Experience and project showcase
-- Smooth animations and transitions
-- Contact and social integration
+js
+{
+  "project": "Personal Portfolio Website",
+  "purpose": "Showcase skills, experience, and real-world work",
+  "focus": ["Frontend Development", "UI/UX", "Production Practices"],
+  "status": "Actively maintained"
+}
+This repository contains the source code of my personal developer portfolio,
+designed to present my technical skills, leadership experience, and projects
+in a clean, professional, and recruiter-friendly manner.
 
-✅ Motivation / Why I Built This
-I built this portfolio to present my skills and experience in a
-clear, professional way for recruiters and collaborators.
-It reflects my learning journey, real-world exposure,
-and interest in building meaningful web applications.
+🧠 Professional Snapshot
+const profile = {
+  degree: "BCA (2024–2027)",
+  cgpa: 8.09,
+  role: "Web Developer & Trainee",
+  organization: "Sitekraft.dev",
+  position: "Founding Member | Core Team – Decision & Strategy",
+  interests: [
+    "Frontend Development",
+    "Automation",
+    "AI-assisted Web Applications"
+  ]
+};
+✨ Features
++ Modern & responsive UI
++ Clean and structured codebase
++ Experience & project showcase
++ Production-level design practices
++ Smooth animations & interactions
+🛠 Tech Stack
+Frontend:
+  - HTML5
+  - CSS3
+  - JavaScript
 
-✅ Optional: Live Demo Section
-Live Demo:
+Tools:
+  - Git & GitHub
+  - VS Code
+  - Figma
+
+Concepts:
+  - Responsive Design
+  - UI/UX Principles
+  - Clean Architecture
+🏗 Experience Highlight
+Web Developer & Trainee
+Founding Member | Core Team – Decision & Strategy
+@ Sitekraft.dev Studios
+
+• Worked on real client projects
+• Built responsive user interfaces
+• Contributed to product discussions and decisions
+• Followed production-level workflows
+🌐 Live Demo
 https://your-portfolio-link.com
-
-🔥 FINAL README STRUCTURE (Recruiter-Ready)
-# Personal Portfolio Website
-
-## About
-## Features
-## Tech Stack
-## Live Demo
-## Contact
+📬 Contact
+{
+  "email": "anveshas417@gmail.com",
+  "linkedin": "https://linkedin.com/in/your-profile"
+}
+<p align="center"> 🚀 Built with passion, learning, and real-world experience. </p> 
