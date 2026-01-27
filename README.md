@@ -69,10 +69,10 @@ Founding Member | Core Team – Decision & Strategy
 • Contributed to product discussions and decisions
 • Followed production-level workflows
 🌐 Live Demo
-https://your-portfolio-link.com
+https://my-portfolio-two-wheat-51.vercel.app/
 📬 Contact
 {
   "email": "anveshas417@gmail.com",
-  "linkedin": "https://linkedin.com/in/your-profile"
+  "linkedin": "https://linkedin.com/in/srivastavaanvesha"
 }
 <p align="center"> 🚀 Built with passion, learning, and real-world experience. </p> 
