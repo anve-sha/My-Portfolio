@@ -92,7 +92,7 @@ function addUserMessage(text) {
 function addBotMessage(text) {
   const div = document.createElement("div");
   div.className = "bot-msg";
-  div.textContent = text;
+  div.innerHTML = text;
   chatBody.appendChild(div);
   chatBody.scrollTop = chatBody.scrollHeight;
 }
@@ -107,33 +107,50 @@ function respondTo(input) {
 
   // Skills
   else if (lowerInput.includes("skill") || lowerInput.includes("tech") || lowerInput.includes("stack")) {
-    addBotMessage("I am proficient in **frontend development** (HTML, CSS, JavaScript, React) and **backend basics** (Python, Node.js). I'm also deeply interested in **Generative AI** and building AI-integrated applications. My toolkit includes tools for responsive design and workflow automation!");
+    addBotMessage("I am proficient in <b>Frontend Development</b> (HTML, CSS, JavaScript, React) and <b>Backend Basics</b> (Python, Node.js).<br><br>I'm also deeply interested in <b>Generative AI</b> and building AI-integrated applications.");
   }
 
   // Projects
   else if (lowerInput.includes("project") || lowerInput.includes("work") || lowerInput.includes("built")) {
-    addBotMessage("I've built some exciting projects recently! \n\n1. **Healthlink:** An AI-powered health companion that predicts risks and gives wellness advice.\n2. **ArthBot:** A smart financial assistant for expense tracking (inspired by the Sanskrit word 'Arth').\n3. **Code Sutra:** An AI-driven coding platform that helps debug and teach programming personalized to you.\n\nWhich one links interesting?");
+    addBotMessage(
+      "I've built some exciting projects recently:<br><br>" +
+      "<ol>" +
+      "<li><b>Healthlink:</b> AI-powered health companion.</li>" +
+      "<li><b>ArthBot:</b> Smart financial assistant.</li>" +
+      "<li><b>Code Sutra:</b> AI-driven coding platform.</li>" +
+      "</ol><br>" +
+      "Which one looks interesting?"
+    );
   }
 
   // Specific Projects
   else if (lowerInput.includes("healthlink")) {
-    addBotMessage("Healthlink is my AI-driven wellness project. It monitors health trends, predicts deficiencies, and uses a conversational bot to guide users toward better lifestyle choices. It's all about proactive healthcare!");
+    addBotMessage("<b>Healthlink</b> is my AI-driven wellness project. It monitors health trends, predicts deficiencies, and uses a conversational bot to guide users toward better lifestyle choices.");
   }
   else if (lowerInput.includes("arth") || lowerInput.includes("finance")) {
-    addBotMessage("ArthBot acts as a financial 'conscience'. It analyzes your spending, helps set budgets, and answers finance queries via chat. I named it after 'Arth' (wealth/purpose) to emphasize mindful spending.");
+    addBotMessage("<b>ArthBot</b> acts as a financial 'conscience'. It analyzes your spending, helps set budgets, and answers finance queries via chat.");
   }
   else if (lowerInput.includes("code") || lowerInput.includes("sutra")) {
-    addBotMessage("Code Sutra is an EdTech platform I designed. It uses AI to analyze your code in real-time, pointing out bugs and suggesting learning paths. It's like having a coding tutor in your browser!");
+    addBotMessage("<b>Code Sutra</b> is an EdTech platform using AI to analyze code in real-time, pointing out bugs and suggesting learning paths.");
   }
 
   // Certifications
   else if (lowerInput.includes("cert") || lowerInput.includes("award") || lowerInput.includes("achievement")) {
-    addBotMessage("I've completed a **Web Development Internship** (Certificate of Completion) and won accolades in **Debate Competitions**. I was also a key participant in the **TechPulse NewsRead** event! You can view the certificates in the 'Certifications' section.");
+    addBotMessage(
+      "I have completed several certifications and trainings:<br><br>" +
+      "<ul>" +
+      "<li><b>Web Development Training</b></li>" +
+      "<li><b>Python Summer Training</b></li>" +
+      "<li><b>Digital Productivity with AI</b> (UNICEF/YuWaah!)</li>" +
+      "<li><b>Movie Ticket Booking System</b> (Project Training)</li>" +
+      "</ul><br>" +
+      "I also have accolades in <b>Debate Competitions</b> and <b>TechPulse NewsRead</b>! Check the 'Certifications' section for more."
+    );
   }
 
   // Experience
   else if (lowerInput.includes("experience") || lowerInput.includes("job") || lowerInput.includes("intern")) {
-    addBotMessage("I am a **Founding Member & Core Team Lead** at Sitekraft.dev Studios. There, I handle frontend development, strategic decision-making, and help steer the platform's direction. It's been an amazing journey of leadership and coding combined.");
+    addBotMessage("I am a **Founding Member & Core Team Lead** at Sitekraft.dev Studios. There, I handle **frontend development**, **strategic decision-making**, and now I'm also working on **AI Agents and AI Automation**! It's been an amazing journey of leadership and coding combined.");
   }
 
   // Contact
